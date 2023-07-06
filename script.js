@@ -3,15 +3,25 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 
+// my sql
+const sql = require('mssql');
 
-// install odbc package
-const odbc = require('odbc');
-// config odbc and add connection string to azure
-const connectionString = `Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlforwebsite.database.windows.net,1433;Database=SQL_website;Uid=admin1@internsarpacloud.onmicrosoft.com;Pwd=recipeforcooK123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;Authentication=ActiveDirectoryPassword`;
-/*
+// config ms sql
+const config = {
+  user: 'CloudSA3320c6f6',
+  password: 'recipeforcooK123',
+  server: 'sqlforwebsite.database.windows.net',
+  database: 'SQL_website',
+  options: {
+    encrypt: true, // For secure connection
+  },
+};
+
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-*/
+
 
 
 // ... Your server code ...
@@ -22,35 +32,36 @@ app.get('/', (req, res) => {
 
 // post statement will add info from website to db
 
-/*  
+// INSERT INTO DATA (WORD) VALUES (?)
+
 app.post('/', async (req,res) => {
     
   word = req.body.word
 
   try {
-  const connection = await odbc.connect(connectionString);
+    // Establish a connection to Azure SQL Database
+    await sql.connect(config);
+
+    // Create a new request object
+    const request = new sql.Request();
+
+    // Set up the parameters for the insert query
+    request.input('word', sql.VarChar, word);
 
     // Execute the SQL query to insert data into the database
-    const query = `INSERT INTO DATA (WORD) VALUES (?)`;
-    await connection.query(query, [word ]);
+    const query = 'INSERT INTO DATA (WORD) VALUES (@word)';
+    await request.query(query);
 
     console.log('Data inserted successfully');
-
-  //Close the database connection
-     connection.close();
-
-    
   } catch (err) {
     console.error('Error executing SQL query:', err);
-
-    
   }
 
   res.sendFile(path.join(__dirname, 'index.html'));
 
 
   })
-  */
+
 
 
 app.listen(8080, () => {
