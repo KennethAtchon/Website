@@ -2,6 +2,14 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+document.getElementById("inputForm").addEventListener("submit", function(event)
+ {
+  event.preventDefault();
+
+var info = document.getElementById("word").value;
+
+
+ })
 
 // ... Your server code ...
 app.get('/', (req, res) => {
