@@ -6,3 +6,4 @@
 
   $SQLQuery = "SELECT * FROM autotest.dept";
     $RecordSet = odbc_exec($ODBCConnection, $SQLQuery);
+    
