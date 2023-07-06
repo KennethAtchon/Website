@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 
+/*
 // install odbc package
 const odbc = require('odbc');
 // config odbc and add connection string to azure
@@ -10,6 +11,7 @@ const connectionString = `Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlf
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+*/
 
 
 // ... Your server code ...
@@ -43,6 +45,8 @@ app.post('/', async (req,res) => {
 
     
   }
+
+  res.sendFile(path.join(__dirname, 'index.html'));
 
 
   })
