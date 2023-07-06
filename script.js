@@ -2,19 +2,32 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-document.getElementById("inputForm").addEventListener("submit", function(event)
- {
-  event.preventDefault();
+// install jdbc package
 
-var info = document.getElementById("word").value;
+// config jdbc and add connection string to azure
 
 
- })
 
 // ... Your server code ...
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+
+// post statement will add info from website to db
+
+// console.log(req.body)
+
+  /*
+app.post('/', async (req,res) => {
+    
+
+  })
+  */
+
+
+
+
 
 
 app.listen(8080, () => {
