@@ -3,12 +3,12 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 
-/*
+
 // install odbc package
 const odbc = require('odbc');
 // config odbc and add connection string to azure
 const connectionString = `Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlforwebsite.database.windows.net,1433;Database=SQL_website;Uid=admin1@internsarpacloud.onmicrosoft.com;Pwd=recipeforcooK123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;Authentication=ActiveDirectoryPassword`;
-
+/*
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 */
