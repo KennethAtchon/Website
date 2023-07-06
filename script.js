@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 // post statement will add info from website to db
 
-  
+/*  
 app.post('/', async (req,res) => {
     
   word = req.body.word
@@ -46,8 +46,7 @@ app.post('/', async (req,res) => {
 
 
   })
-  
-
+  */
 
 
 app.listen(8080, () => {
