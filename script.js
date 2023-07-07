@@ -9,7 +9,7 @@ const sql = require('mssql');
 // config ms sql
 const config = {
   user: 'CloudSA3320c6f6',
-  password: 'process.env.DB_PASSWORD',
+  password: 'recipeforcooK123',
   server: 'sqlforwebsite.database.windows.net',
   database: 'SQL_website',
   options: {
